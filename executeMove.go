@@ -13,13 +13,12 @@ func (b *board) validMove(moveInt int) bool {
 func (b *board) executeMove(player int) {
 	moveInt := getMove()
 	if !b.validMove(moveInt) {
-
 		b.executeMove(player)
 	}
 	if player == 1 {
-		b.playable_field[moveInt] = player_x
+		b.playable_field[moveInt] = b.player_x
 	} else {
-		b.playable_field[moveInt] = player_O
+		b.playable_field[moveInt] = b.player_O
 	}
 
 }

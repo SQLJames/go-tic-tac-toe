@@ -1,9 +1,5 @@
 package main
 
-import (
-	"fmt"
-)
-
 var (
 	columns, rows int = 3, 3
 	player_x          = 10
@@ -19,12 +15,7 @@ func main() {
 		board.printBoard()
 		player := getPlayer(turnNumber)
 		board.executeMove(player)
-		gameOver = board.checkforTie(turnNumber)
-		if board.checkforWin() {
-			fmt.Printf("Player %d has Won!\n", player)
-			board.printBoard()
-			gameOver = true
-		}
+		gameOver = board.getGameStatus(turnNumber, player)
 		turnNumber++
 
 	}

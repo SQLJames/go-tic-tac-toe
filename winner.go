@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 func (b *board) checkforWin() (won bool) {
 	sums := make([]int, 8)
 	//0 | 1 | 2
@@ -35,9 +33,5 @@ func (b *board) checkforWin() (won bool) {
 }
 
 func (b *board) checkforTie(turn int) bool {
-	if turn == 9 {
-		fmt.Println("Game Tied, Nobody wins.")
-		return true
-	}
-	return false
+	return turn == 9
 }

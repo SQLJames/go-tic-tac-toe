@@ -1,16 +1,24 @@
 package main
 
 type board struct {
-	columns        int
-	rows           int
+	size           int
 	playable_field []int
+	player_O       int
+	player_x       int
+	winningTotalO  int
+	winningTotalX  int
 }
 
-func newBoard(columns, rows int) (b *board) {
+func newBoard(s int) (b *board) {
+	x := 111
+	o := 1000
 	b = &board{
-		columns:        columns,
-		rows:           rows,
-		playable_field: make([]int, rows*columns),
+		size:           s,
+		playable_field: make([]int, s*s),
+		player_O:       x,
+		player_x:       o,
+		winningTotalO:  o * s,
+		winningTotalX:  x * s,
 	}
 	return b
 }

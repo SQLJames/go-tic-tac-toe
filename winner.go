@@ -19,7 +19,7 @@ func (b *board) calcStraightWinner() (winner bool) {
 	var totalRow, totalColumn int
 	for rowNumber := 0; rowNumber < b.size; rowNumber++ {
 
-		for columnNumber, _ := range make([]int, b.size) {
+		for columnNumber := range make([]int, b.size) {
 			totalRow += b.playable_field[columnNumber+(rowNumber*b.size)]
 			totalColumn += b.playable_field[rowNumber+(columnNumber*b.size)]
 		}

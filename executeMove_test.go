@@ -7,7 +7,7 @@ import (
 func TestValidMove(t *testing.T) {
 	t.Run("Space already occupied", func(t *testing.T) {
 		board := newBoard(3)
-		for chosenSpace, _ := range board.playable_field {
+		for chosenSpace := range board.playable_field {
 			b := newBoard(3)
 			b.playable_field[chosenSpace] = b.player_O
 			move := b.validMove(chosenSpace)
@@ -37,7 +37,7 @@ func TestValidMove(t *testing.T) {
 	})
 	t.Run("In range not occupied", func(t *testing.T) {
 		board := newBoard(3)
-		for chosenSpace, _ := range board.playable_field {
+		for chosenSpace := range board.playable_field {
 			move := board.validMove(chosenSpace)
 			if !move {
 				t.Errorf("move valid: %t on Space %d", move, chosenSpace)

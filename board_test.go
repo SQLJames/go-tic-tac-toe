@@ -21,8 +21,9 @@ func TestNewBoard(t *testing.T) {
 		for _, tc := range cases {
 			actual := newBoard(tc.size)
 			if len(actual.playable_field) != tc.expected {
+				
 				t.Fatalf("desc %s: expected: %d got: %d sizeProvided %d",
-					tc.desc, tc.expected, actual, tc.size)
+					tc.desc, tc.expected, actual.playable_field, tc.size)
 			}
 		}
 	})

@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func getPlayer(turnNumber int) (playerNumber int) {
+func (b *board) getPlayer(turnNumber int) (playerNumber int) {
 	if turnNumber%2 == 1 {
 		fmt.Println("Player 1's turn")
 		return 1

@@ -6,9 +6,9 @@ func (b *board) checkforWin() (won bool) {
 	diag := b.calcDiagWinner()
 
 	if row || diag {
-		return true
+		won = true
 	}
-	return false
+	return won
 }
 
 func (b *board) checkforTie(turn int) bool {
@@ -24,12 +24,12 @@ func (b *board) calcStraightWinner() (winner bool) {
 			totalColumn += b.playable_field[rowNumber+(columnNumber*b.size)]
 		}
 		if totalRow == b.winningTotalO || totalRow == b.winningTotalX || totalColumn == b.winningTotalO || totalColumn == b.winningTotalX {
-			return true
+			winner = true
 		}
 		totalRow, totalColumn = 0, 0
 
 	}
-	return false
+	return winner
 }
 
 func (b *board) calcDiagWinner() (winner bool) {
@@ -52,12 +52,12 @@ func (b *board) calcDiagWinner() (winner bool) {
 
 	//fmt.Printf("totalDownToRight: %d totalDownToLeft: %d \n", totalDownToRight, totalDownToLeft)
 	if sumSlice(totalDownToLeft) == b.winningTotalO || sumSlice(totalDownToLeft) == b.winningTotalX {
-		return true
+		winner = true
 	}
 	if sumSlice(totalDownToRight) == b.winningTotalO || sumSlice(totalDownToRight) == b.winningTotalX {
-		return true
+		winner = true
 	}
-	return false
+	return winner
 }
 
 func sumSlice(slice []int) (result int) {

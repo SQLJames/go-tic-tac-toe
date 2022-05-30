@@ -1,9 +1,5 @@
 package main
 
-import (
-	"fmt"
-)
-
 func (b *board) checkforWin() (won bool) {
 
 	row := b.calcStraightWinner()
@@ -41,20 +37,20 @@ func (b *board) calcDiagWinner() (winner bool) {
 	index := 0
 	for row := 0; row < b.size; row++ {
 		for column := 0; column < b.size; column++ {
-			fmt.Printf("Column: %d Row: %d Index: %d \n", column, row, index)
+			//fmt.Printf("Column: %d Row: %d Index: %d \n", column, row, index)
 			if (row*b.size)+row == index {
 				totalDownToRight = append(totalDownToRight, b.playable_field[index])
-				fmt.Println("adding to totalDownToRight")
+				//fmt.Println("adding to totalDownToRight")
 			}
 			if (row+1)*b.size-1*(row+1) == index {
-				fmt.Println("adding to totalDownToLeft")
+				//fmt.Println("adding to totalDownToLeft")
 				totalDownToLeft = append(totalDownToLeft, b.playable_field[index])
 			}
 			index++
 		}
 	}
 
-	fmt.Printf("totalDownToRight: %d totalDownToLeft: %d \n", totalDownToRight, totalDownToLeft)
+	//fmt.Printf("totalDownToRight: %d totalDownToLeft: %d \n", totalDownToRight, totalDownToLeft)
 	if sumSlice(totalDownToLeft) == b.winningTotalO || sumSlice(totalDownToLeft) == b.winningTotalX {
 		return true
 	}

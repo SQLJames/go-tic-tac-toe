@@ -12,9 +12,11 @@ func getPlayer(turnNumber int) (playerNumber int) {
 	}
 }
 
-func getMove() (moveInt int) {
+func (b *board) getMove() (moveInt int) {
 	fmt.Println("Enter the number where you would like to go.")
 	fmt.Scan(&moveInt)
-
+	if !b.validMove(moveInt) {
+		b.getMove()
+	}
 	return moveInt
 }

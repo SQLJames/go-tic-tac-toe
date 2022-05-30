@@ -11,7 +11,8 @@ func main() {
 	for !gameOver {
 		board.printBoard()
 		player := getPlayer(turnNumber)
-		board.executeMove(player)
+		selectedSquare := board.getMove()
+		board.executeMove(selectedSquare, player)
 		if turnNumber >= 5 {
 			gameOver = board.getGameStatus(turnNumber, player)
 		}
